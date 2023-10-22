@@ -1,6 +1,6 @@
 import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
-import Toggle from "./Toggle";
+import {Toggle} from "./Toggle";
 import {RiContrast2Fill} from "react-icons/ri"
 const meta: Meta<typeof Toggle> = {
   component: Toggle,

@@ -1,6 +1,6 @@
 import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
-import Password from "./Password";
+import {Password} from "./Password";
 
 export default {
   title: "SimpliUI/Password",

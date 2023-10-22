@@ -68,4 +68,4 @@ const Password = ({ placeholder, onChange, ...props }: PasswordProps) => {
   );
 };
 
-export default Password;
+export {Password};

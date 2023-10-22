@@ -33,4 +33,4 @@ const Badge = ({ text, variant }: BadgeProps) => {
   return <StyledBadge variant={variant}>{text}</StyledBadge>;
 };
 
-export default Badge;
+export {Badge};

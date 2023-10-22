@@ -126,4 +126,4 @@ const Select = ({ options, value, onChange, variant, label }: SelectProps) => {
   );
 };
 
-export default Select;
+export {Select};

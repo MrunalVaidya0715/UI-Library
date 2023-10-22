@@ -1,7 +1,7 @@
 {
-  "name": "ui-library",
-  "version": "1.0.0",
-  "description": "",
+  "name": "simpli-ui",
+  "version": "1.0.1",
+  "description": "A Simple UI Component Library",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/index.d.ts",

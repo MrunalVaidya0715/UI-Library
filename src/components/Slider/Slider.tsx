@@ -35,4 +35,4 @@ const Slider = ({
   );
 };
 
-export default Slider;
+export {Slider};

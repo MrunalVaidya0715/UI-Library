@@ -32,4 +32,4 @@ const TextArea = ({ label, variant = "default", ...rest }: TextareaProps) => {
   );
 };
 
-export default TextArea;
+export {TextArea};

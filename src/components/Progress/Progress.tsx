@@ -44,4 +44,4 @@ const Progress = ({ value, minValue, maxValue }: ProgressProps) => {
   );
 };
 
-export default Progress;
+export {Progress};

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Meta, StoryObj } from '@storybook/react';
-import Radio from './Radio';
+import {Radio} from './Radio';
 import { RadioProps, RadioOption, RadioGroupProps } from './Radio.types';
 
 export default {

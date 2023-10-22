@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meta } from '@storybook/react';
-import Form from './Form';
+import {Form} from './Form';
 
 export default {
   title: 'SimpliUI/Form',

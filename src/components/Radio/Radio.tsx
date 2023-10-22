@@ -48,4 +48,4 @@ const Radio = ({ label, value, checked, onChange }: RadioProps) => (
   </RadioLabel>
 );
 
-export default Radio;
+export {Radio};

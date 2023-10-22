@@ -50,4 +50,4 @@ const Toggle = ({ isActive, children }: ToggleButtonProps) => {
   );
 };
 
-export default Toggle;
+export {Toggle};

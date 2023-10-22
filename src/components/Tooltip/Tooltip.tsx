@@ -79,4 +79,4 @@ const Tooltip = ({ message, position, children }: TooltipProps) => {
   );
 };
 
-export default Tooltip;
+export {Tooltip};
