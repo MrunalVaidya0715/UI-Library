@@ -53,7 +53,7 @@ const Accordion = ({ collapsible, children }: AccordionProps) => {
           return React.cloneElement(child, {
             activeItem,
             onClick: handleItemClick,
-          });
+          } as AccordionItemProps);
         }
         return child;
       })}
@@ -71,7 +71,7 @@ const AccordionItem = ({
 
   return (
     <StyledAccordionItem>
-      <StyledAccordionTrigger onClick={() => onClick(value)}>
+      <StyledAccordionTrigger onClick={() => onClick && value && onClick(value)}>
         {children}
         <AiOutlinePlus style={{transform: isActive? "rotate(45deg)":"", transition:"all ease-in-out 150ms"}}/>
       </StyledAccordionTrigger>

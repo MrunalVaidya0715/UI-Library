@@ -27,7 +27,9 @@ const Checkbox = ({ label, checked, onChange }: CheckboxProps) => {
   const handleCheckboxChange = () => {
     const newCheckedState = !isChecked;
     setIsChecked(newCheckedState);
-    onChange(newCheckedState);
+    if (onChange) {
+      onChange(newCheckedState); 
+    }
   };
 
   return (

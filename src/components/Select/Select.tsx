@@ -62,19 +62,21 @@ const Select = ({ options, value, onChange, variant, label }: SelectProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const [selectedOptions, setSelectedOptions] = useState(
-    variant === "multiple" ? value || [] : value
+    variant === "multiple" ?  value || [] : value
   );
 
   const toggleOptions = () => {
     setIsOpen(!isOpen);
   };
 
-  const handleOptionClick = (option) => {
+  const handleOptionClick = (option:string) => {
     if (variant === "multiple") {
-      if (selectedOptions.includes(option)) {
-        setSelectedOptions(selectedOptions.filter((item) => item !== option));
-      } else {
-        setSelectedOptions([...selectedOptions, option]);
+      if(Array.isArray(selectedOptions)){
+        if (selectedOptions.includes(option)) {
+          setSelectedOptions(selectedOptions.filter((item:string) => item !== option));
+        } else {
+          setSelectedOptions([...selectedOptions, option]);
+        }
       }
     } else {
       setSelectedOptions(option);
@@ -110,7 +112,7 @@ const Select = ({ options, value, onChange, variant, label }: SelectProps) => {
             onClick={() => handleOptionClick(option)}
             style={{
               backgroundColor:
-                variant === "multiple" && selectedOptions.includes(option)
+                variant === "multiple" && selectedOptions?.includes(option)
                   ? "#f0f0f0"
                   : "transparent",
                   
