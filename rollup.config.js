@@ -29,7 +29,13 @@ export default [
       typescript({ tsconfig: "./tsconfig.json" }),
       terser(),
     ],
-    external: ["react", "react-dom", "styled-components"],
+    external: ["react", "react-dom", "styled-components", "react-icons"],
+    onwarn: function (warning) {
+      if (warning.code === "THIS_IS_UNDEFINED") {
+        return;
+      }
+      console.warn(warning.message);
+    },
   },
   {
     input: "src/index.ts",
