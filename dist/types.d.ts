@@ -1,4 +1,4 @@
-import React$1, { MouseEventHandler, ChangeEventHandler, TextareaHTMLAttributes } from 'react';
+import React$1, { MouseEventHandler, CSSProperties, ChangeEventHandler, TextareaHTMLAttributes } from 'react';
 
 interface ButtonProps {
     text?: string;
@@ -6,9 +6,11 @@ interface ButtonProps {
     disabled?: boolean;
     size?: "small" | "medium" | "large";
     onClick?: MouseEventHandler<HTMLButtonElement>;
+    style?: CSSProperties;
+    className?: string;
 }
 
-declare const Button: ({ size, primary, disabled, text, onClick, ...props }: ButtonProps) => React$1.JSX.Element;
+declare const Button: ({ size, primary, disabled, text, onClick, style, className, ...props }: ButtonProps) => React$1.JSX.Element;
 
 interface InputProps {
     id?: string;
