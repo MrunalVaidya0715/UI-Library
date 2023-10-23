@@ -72,9 +72,10 @@ interface ProgressProps {
     value?: number;
     minValue?: number;
     maxValue?: number;
+    showValue?: boolean;
 }
 
-declare const Progress: ({ value, minValue, maxValue }: ProgressProps) => React$1.JSX.Element;
+declare const Progress: ({ value, minValue, maxValue, showValue }: ProgressProps) => React$1.JSX.Element;
 
 interface SliderProps {
     defaultValue: number;
