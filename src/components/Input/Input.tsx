@@ -2,10 +2,20 @@ import React from "react";
 import styled from "styled-components";
 import { InputProps } from "./Input.types";
 
+const StyledContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: start;
+  justify-content: center;
+  gap: 0.2rem;
+
+`
+
 const StyledInput = styled.input<InputProps>`
-  padding: 0.2rem 0.4rem;
+  /* padding: 0.2rem 0.4rem; */
   height: 2rem;
-  width: fit-content;
+  width: 100%;
   border-radius: 8px;
   border: solid 2px
     ${(props) =>
@@ -23,19 +33,18 @@ const StyledInput = styled.input<InputProps>`
   &:not(:focus){
     border-color: ${(props)=>props.disabled?"":"#1b116e"} ;
   }
-  cursor: ${(props) => (props.disabled ? "not-allowed" : "pointer")};
+  cursor: ${(props) => (props.disabled ? "not-allowed" : "auto")};
 `;
 
 const StyledLabel = styled.div<InputProps>`
   font-size: 1rem;
   color: ${(props) => (props.disabled ? "#e4e3ea" : props.success?"#73d44c": "#080808")};
-  padding-bottom: 6px;
+  
 `;
 
 const StyledMessage = styled.div<InputProps>`
-  font-size: 14px;
+  font-size: 1rem;
   color: #9150b8;
-  padding-top: 4px;
 `;
 
 const StyledText = styled.p<InputProps>`
@@ -43,6 +52,8 @@ const StyledText = styled.p<InputProps>`
   color: ${(props) =>
     props.disabled ? "#e4e3ea" : props.error ? "#a9150b" : "#080808"};
 `;
+
+
 
 const Input= ({
   id,
@@ -56,7 +67,7 @@ const Input= ({
   ...props
 }:InputProps) => {
   return (
-    <>
+    <StyledContainer>
       <StyledLabel>
         <StyledText disabled={disabled} error={error}>
           {label}
@@ -74,7 +85,7 @@ const Input= ({
       <StyledMessage>
         <StyledText error={error}>{message}</StyledText>
       </StyledMessage>
-    </>
+    </StyledContainer>
   );
 };
 

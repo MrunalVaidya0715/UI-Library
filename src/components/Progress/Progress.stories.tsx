@@ -21,4 +21,5 @@ type ProgressStory = StoryObj<typeof Progress>;
 export const Default: ProgressStory = (args) => <Progress {...args} />;
 Default.args = {
   value: 50,
+  showValue: true,
 };

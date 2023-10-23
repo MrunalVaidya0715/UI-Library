@@ -5,7 +5,11 @@ import { RxRocket } from "react-icons/rx";
 import { BiError } from "react-icons/bi";
 import { AiOutlineClose } from "react-icons/ai";
 const AlertContainer = styled.div`
-  position: relative;
+  z-index: 999;
+  position: fixed;
+  top: 1rem;
+  left: 50%;
+  transform: translate(-50%, 50%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -81,7 +85,7 @@ const Alert = ({
             <AiOutlineClose onClick={onCloseAlert} size={16} />
           </CloseButn>
           <AlertIconContainer>
-            {variant === "destructive" ? <BiError /> : <RxRocket />}
+            {variant === "destructive" ? <BiError style={{color:"red"}} /> : <RxRocket style={{color:"blue"}} />}
           </AlertIconContainer>
           <AlertInstruct>
             <AlertTitle variant={variant}>{title}</AlertTitle>

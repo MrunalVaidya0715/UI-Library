@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { ProgressProps } from "./Progress.types";
 
 const StyledProgress = styled.div`
+  position: relative;
   width: 100%;
   height: 0.8rem;
   background-color: #fff;
@@ -12,6 +13,15 @@ const StyledProgress = styled.div`
   overflow: hidden;
 `;
 
+const StyledSpan = styled.span`
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  font-weight: 700;
+  font-size: 0.8rem;
+  
+`;
 const ProgressBar = styled.div<ProgressProps>`
   width: ${(props) => {
     if ((props.value ?? 0) < 0) {
@@ -31,7 +41,7 @@ const ProgressBar = styled.div<ProgressProps>`
   transition: width 0.3s ease-in;
 `;
 
-const Progress = ({ value, minValue, maxValue }: ProgressProps) => {
+const Progress = ({ value, minValue, maxValue, showValue }: ProgressProps) => {
   return (
     <StyledProgress>
       <ProgressBar
@@ -39,9 +49,12 @@ const Progress = ({ value, minValue, maxValue }: ProgressProps) => {
         minValue={minValue || 0}
         maxValue={maxValue || 100}
       >
+        {
+          showValue && <StyledSpan>{value}%</StyledSpan>
+        }
       </ProgressBar>
     </StyledProgress>
   );
 };
 
-export {Progress};
+export { Progress };

@@ -52,9 +52,9 @@ const OptionsList = styled.ul<Op>`
 const Option = styled.li`
   padding: 0.5rem;
   cursor: pointer;
-
-  &:hover {
-    background-color: black;
+  &:hover{
+    color: gray;
+  ;
   }
 `;
 

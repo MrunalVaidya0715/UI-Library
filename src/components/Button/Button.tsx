@@ -9,7 +9,7 @@ const StyledDiv = styled.div`
   width: 0;
   height: 100%;
   background-color: #5755c794;
-  transition: width 400ms ease-in-out 400ms;
+  transition: width 250ms ease-in-out 150ms;
   mix-blend-mode:overlay;
 `;
 
@@ -18,7 +18,7 @@ const StyledButton = styled.button<ButtonProps>`
   border: 0;
   overflow: hidden;
   line-height: 1;
-  font-size: ${(props) => (props.size === "small"? "0.8rem" :props.size === "medium" ? "1rem" : "1.2rem")};
+  font-size: ${(props) => (props.size === "small"? "0.8rem" :props.size === "medium" ? "1rem" : props.size === "large" ?  "1.2rem": "0.8rem")};
   cursor: ${(props) => (props.disabled ? "not-allowed" : "pointer")};
   font-weight: 400;
   border-radius: 5px;
@@ -26,10 +26,10 @@ const StyledButton = styled.button<ButtonProps>`
   display: inline-block;
   padding: ${(props) =>
     props.size === "small"
-      ? "6px 16px"
+      ? "0.4rem"
       : props.size === "medium"
-      ? "12px 24px"
-      : "18px 36px"};
+      ? "0.6rem" : props.size === "large" ? "1rem 1.2rem"
+      : "0.8rem"};
   color: ${(props) => (props.primary ? "#fff" : props.disabled? "gray": "#000")};
   background-color: ${(props) => (props.primary ? "#a59dec" : "transparent")};
   opacity: ${(props) => (props.disabled ? 0.5 : 1)};
