@@ -63,6 +63,8 @@ const Button = ({
   disabled,
   text,
   onClick,
+  style,
+  className,
   ...props
 }: ButtonProps) => {
   return (
@@ -72,6 +74,8 @@ const Button = ({
       primary={primary}
       disabled={disabled}
       size={size}
+      style={style}
+      className={className}
       {...props}
     >
       {text}
