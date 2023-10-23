@@ -41,9 +41,9 @@ const ProgressBar = styled.div<ProgressProps>`
   transition: width 0.3s ease-in;
 `;
 
-const Progress = ({ value, minValue, maxValue, showValue }: ProgressProps) => {
+const Progress = ({ value, minValue, maxValue, showValue, style, className, ...props }: ProgressProps) => {
   return (
-    <StyledProgress>
+    <StyledProgress style={style} className={className} {...props}>
       <ProgressBar
         value={value}
         minValue={minValue || 0}

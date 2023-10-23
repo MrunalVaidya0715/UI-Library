@@ -67,6 +67,9 @@ const Alert = ({
   description,
   children,
   onClose,
+  style,
+  className,
+  ...props
 }: AlertProps) => {
   const [isOpen, setIsOpen] = useState(true);
 
@@ -80,7 +83,7 @@ const Alert = ({
   return (
     <>
       {isOpen && (
-        <AlertContainer>
+        <AlertContainer style={style} className={className} {...props}>
           <CloseButn>
             <AiOutlineClose onClick={onCloseAlert} size={16} />
           </CloseButn>

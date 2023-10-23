@@ -23,11 +23,11 @@ const TextAreaField = styled.textarea<TextareaProps>`
   cursor: ${(props)=>props.variant === "disabled" ? "not-allowed":"pointer"};
 `;
 
-const TextArea = ({ label, variant = "default", ...rest }: TextareaProps) => {
+const TextArea = ({ label, variant = "default",style, className, ...props }: TextareaProps) => {
   return (
-    <StyledTextarea>
+    <StyledTextarea style={style} className={className} >
       {variant === "withLabel" && label && <Label>{label}</Label>}
-      <TextAreaField {...rest} />
+      <TextAreaField {...props} />
     </StyledTextarea>
   );
 };

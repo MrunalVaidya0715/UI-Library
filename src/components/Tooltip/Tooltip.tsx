@@ -51,7 +51,7 @@ const StyledTooltipTrigger = styled.span`
   cursor: help;
 `;
 
-const Tooltip = ({ message, position, children }: TooltipProps) => {
+const Tooltip = ({ message, position, children, style, className }: TooltipProps) => {
   const handleMouseEnter = () => {
     const tooltipMessage = document.getElementById("tooltip-message");
     if (tooltipMessage) {
@@ -70,6 +70,8 @@ const Tooltip = ({ message, position, children }: TooltipProps) => {
     <StyledTooltip
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      style={style}
+      className={className}
     >
       <StyledTooltipTrigger>{children}</StyledTooltipTrigger>
       <StyledTooltipMessage id="tooltip-message" position={position}>

@@ -64,10 +64,12 @@ const Input= ({
   success,
   onChange,
   placeholder,
+  style,
+  className,
   ...props
 }:InputProps) => {
   return (
-    <StyledContainer>
+    <StyledContainer style={style} className={className} >
       <StyledLabel>
         <StyledText disabled={disabled} error={error}>
           {label}

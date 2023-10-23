@@ -64,17 +64,14 @@ const FormSubmitButton = styled.button`
   transition: all ease-in-out 200ms;
 `;
 
-const Form = ({ title, children, onSubmit }: FormProps) => {
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    onSubmit();
-  };
+const Form = ({ title, children, onSubmit, style, className,...props }: FormProps) => {
+  
 
   return (
-    <FormWrapper>
+    <FormWrapper style={style} className={className} {...props} >
       <GlobalReset>
         <FormTitle>{title}</FormTitle>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={onSubmit}>
           <FormContent>{children}</FormContent>
           <FormSubmitButton type="submit">Submit</FormSubmitButton>
         </form>

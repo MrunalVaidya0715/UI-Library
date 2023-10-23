@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import { CheckboxProps } from './Checkbox.types';
+import React, { useState } from "react";
+import styled from "styled-components";
+import { CheckboxProps } from "./Checkbox.types";
 
 const CheckboxLabel = styled.label`
   display: flex;
@@ -21,26 +21,41 @@ const CheckboxText = styled.span`
   cursor: pointer;
 `;
 
-const Checkbox = ({ label, checked, onChange }: CheckboxProps) => {
+const Checkbox = ({
+  label,
+  checked,
+  onChange,
+  style,
+  className,
+  ...props
+}: CheckboxProps) => {
   const [isChecked, setIsChecked] = useState(checked);
 
   const handleCheckboxChange = () => {
     const newCheckedState = !isChecked;
     setIsChecked(newCheckedState);
     if (onChange) {
-      onChange(newCheckedState); 
+      onChange(newCheckedState);
     }
   };
 
   return (
-    <CheckboxLabel onChange={handleCheckboxChange}>
+    <CheckboxLabel
+      style={style}
+      className={className}
+      onChange={handleCheckboxChange}
+      {...props}
+    >
       <CheckboxInput
+        style={style}
+        className={className}
         type="checkbox"
-        checked={isChecked} 
+        checked={isChecked}
+        {...props}
       />
-      <CheckboxText>{label}</CheckboxText>
+      <CheckboxText  style={style} className={className} {...props}>{label}</CheckboxText>
     </CheckboxLabel>
   );
 };
 
-export {Checkbox};
+export { Checkbox };

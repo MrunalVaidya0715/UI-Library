@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { ToggleButtonProps } from "./Toggle.types";
-import { TooltipProps } from "../Tooltip/Tooltip.types";
 
-const StyledToggleButton = styled.div`
+
+const StyledToggleButton = styled.div<ToggleButtonProps>`
   display: flex;
   padding: 0.5rem;
   width: fit-content;
@@ -20,6 +20,8 @@ const StyledToggleButton = styled.div`
   &:hover {
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
   }
+  background-color: ${(props)=>props.isActive ?"#eceef1":"transparent"};
+  border-color: ${(props)=>props.isActive ?"#9ba3ab":"#D1D5DB"};
 `;
 
 const StyledIcon = styled.div<ToggleButtonProps>`
@@ -30,8 +32,8 @@ const StyledIcon = styled.div<ToggleButtonProps>`
   transition: color 150ms ease-in;
 `;
 
-const Toggle = ({ isActive, children }: ToggleButtonProps) => {
-  const [isAct, setIsActive] = useState(false);
+const Toggle = ({ isActive, children, style, className }: ToggleButtonProps) => {
+  const [isAct, setIsActive] = useState(isActive);
 
   const handleToggleClick = () => {
     setIsActive((prevIsActive) => !prevIsActive);
@@ -39,10 +41,8 @@ const Toggle = ({ isActive, children }: ToggleButtonProps) => {
 
   return (
     <StyledToggleButton
-      style={{
-        backgroundColor: isAct ? "#eceef1" : "transparent",
-        borderColor: isActive ? "#9ba3ab" : "#D1D5DB",
-      }}
+      style={style}
+      className={className}
       onClick={handleToggleClick}
     >
       <StyledIcon isActive={isAct}>{children}</StyledIcon>

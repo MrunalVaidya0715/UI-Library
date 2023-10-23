@@ -29,8 +29,8 @@ const StyledBadge = styled.div<BadgeProps>`
 
 `;
 
-const Badge = ({ text, variant }: BadgeProps) => {
-  return <StyledBadge variant={variant}>{text}</StyledBadge>;
+const Badge = ({ text, variant, style, className, ...props }: BadgeProps) => {
+  return <StyledBadge style={style} className={className} variant={variant} {...props}>{text}</StyledBadge>;
 };
 
 export {Badge};

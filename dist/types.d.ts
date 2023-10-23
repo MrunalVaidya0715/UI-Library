@@ -1,4 +1,4 @@
-import React$1, { MouseEventHandler, CSSProperties, ChangeEventHandler, TextareaHTMLAttributes } from 'react';
+import React$1, { MouseEventHandler, CSSProperties, ChangeEventHandler, TextareaHTMLAttributes, FormEventHandler } from 'react';
 
 interface ButtonProps {
     text?: string;
@@ -21,33 +21,41 @@ interface InputProps {
     disabled?: boolean;
     placeholder?: string;
     onChange?: ChangeEventHandler<HTMLInputElement>;
+    style?: CSSProperties;
+    className?: string;
 }
 
-declare const Input: ({ id, disabled, label, message, error, success, onChange, placeholder, ...props }: InputProps) => React$1.JSX.Element;
+declare const Input: ({ id, disabled, label, message, error, success, onChange, placeholder, style, className, ...props }: InputProps) => React$1.JSX.Element;
 
 declare const Switch: () => React$1.JSX.Element;
 
 interface ToggleButtonProps {
     isActive?: boolean;
     children?: React.ReactNode;
+    style?: CSSProperties;
+    className?: string;
 }
 
-declare const Toggle: ({ isActive, children }: ToggleButtonProps) => React$1.JSX.Element;
+declare const Toggle: ({ isActive, children, style, className }: ToggleButtonProps) => React$1.JSX.Element;
 
 interface TooltipProps {
     message?: string;
     children?: React.ReactNode;
     position?: "top" | "bottom" | "left" | "right";
+    style?: CSSProperties;
+    className?: string;
 }
 
-declare const Tooltip: ({ message, position, children }: TooltipProps) => React$1.JSX.Element;
+declare const Tooltip: ({ message, position, children, style, className }: TooltipProps) => React$1.JSX.Element;
 
 interface BadgeProps {
     text?: string;
     variant?: "primary" | "secondary" | "outline" | "destructive";
+    style?: CSSProperties;
+    className?: string;
 }
 
-declare const Badge: ({ text, variant }: BadgeProps) => React$1.JSX.Element;
+declare const Badge: ({ text, variant, style, className, ...props }: BadgeProps) => React$1.JSX.Element;
 
 interface AccordionProps {
     collapsible?: boolean;
@@ -66,18 +74,22 @@ declare const AccordionItem: ({ value, activeItem, onClick, children, }: Accordi
 interface TextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
     label?: string;
     variant?: "default" | "withLabel" | "disabled";
+    style?: CSSProperties;
+    className?: string;
 }
 
-declare const TextArea: ({ label, variant, ...rest }: TextareaProps) => React$1.JSX.Element;
+declare const TextArea: ({ label, variant, style, className, ...props }: TextareaProps) => React$1.JSX.Element;
 
 interface ProgressProps {
     value?: number;
     minValue?: number;
     maxValue?: number;
     showValue?: boolean;
+    style?: CSSProperties;
+    className?: string;
 }
 
-declare const Progress: ({ value, minValue, maxValue, showValue }: ProgressProps) => React$1.JSX.Element;
+declare const Progress: ({ value, minValue, maxValue, showValue, style, className, ...props }: ProgressProps) => React$1.JSX.Element;
 
 interface SliderProps {
     defaultValue: number;
@@ -94,17 +106,21 @@ interface SelectProps {
     onChange: (value: string | string[] | null) => void;
     variant?: "single" | "multiple";
     label?: string;
+    style?: CSSProperties;
+    className?: string;
 }
 
-declare const Select: ({ options, value, onChange, variant, label }: SelectProps) => React$1.JSX.Element;
+declare const Select: ({ options, value, onChange, variant, label, style, className, ...props }: SelectProps) => React$1.JSX.Element;
 
 interface CheckboxProps {
     label?: string;
     checked?: boolean;
     onChange?: (isChecked: boolean) => void;
+    style?: CSSProperties;
+    className?: string;
 }
 
-declare const Checkbox: ({ label, checked, onChange }: CheckboxProps) => React$1.JSX.Element;
+declare const Checkbox: ({ label, checked, onChange, style, className, ...props }: CheckboxProps) => React$1.JSX.Element;
 
 interface RadioProps {
     label: string;
@@ -116,28 +132,34 @@ interface RadioProps {
 declare const Radio: ({ label, value, checked, onChange }: RadioProps) => React$1.JSX.Element;
 
 interface FormProps {
-    title: string;
-    children: React.ReactNode;
-    onSubmit: () => void;
+    title?: string;
+    children?: React.ReactNode;
+    onSubmit?: FormEventHandler<HTMLFormElement>;
+    style?: CSSProperties;
+    className?: string;
 }
 
-declare const Form: ({ title, children, onSubmit }: FormProps) => React$1.JSX.Element;
+declare const Form: ({ title, children, onSubmit, style, className, ...props }: FormProps) => React$1.JSX.Element;
 
 interface PasswordProps {
     placeholder?: string;
     onChange?: ChangeEventHandler<HTMLInputElement>;
+    style?: CSSProperties;
+    className?: string;
 }
 
-declare const Password: ({ placeholder, onChange, ...props }: PasswordProps) => React$1.JSX.Element;
+declare const Password: ({ placeholder, onChange, style, className, ...props }: PasswordProps) => React$1.JSX.Element;
 
 interface AlertProps {
-    variant?: 'default' | 'destructive';
+    variant?: "default" | "destructive";
     title?: string;
     description?: string;
     children?: React.ReactNode;
     onClose?: () => void;
+    style?: CSSProperties;
+    className?: string;
 }
 
-declare const Alert: ({ variant, title, description, children, onClose, }: AlertProps) => React$1.JSX.Element;
+declare const Alert: ({ variant, title, description, children, onClose, style, className, ...props }: AlertProps) => React$1.JSX.Element;
 
 export { Accordion, AccordionItem, Alert, Badge, Button, Checkbox, Form, Input, Password, Progress, Radio, Select, Slider, Switch, TextArea, Toggle, Tooltip };

@@ -1,4 +1,4 @@
-import { ChangeEventHandler } from "react";
+import { ChangeEventHandler, CSSProperties } from "react";
 
 export interface InputProps {
   id?: string;
@@ -9,4 +9,6 @@ export interface InputProps {
   disabled?: boolean;
   placeholder?: string;
   onChange?: ChangeEventHandler<HTMLInputElement>;
+  style?: CSSProperties;
+  className?: string;
 }

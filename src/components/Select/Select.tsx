@@ -58,7 +58,7 @@ const Option = styled.li`
   }
 `;
 
-const Select = ({ options, value, onChange, variant, label }: SelectProps) => {
+const Select = ({ options, value, onChange, variant, label, style, className, ...props }: SelectProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const [selectedOptions, setSelectedOptions] = useState(
@@ -92,7 +92,7 @@ const Select = ({ options, value, onChange, variant, label }: SelectProps) => {
   }, [selectedOptions, onChange, variant]);
 
   return (
-    <SelectWrapper>
+    <SelectWrapper style={style} className={className} {...props}>
       <SelectButton onClick={toggleOptions}>
         
         {
