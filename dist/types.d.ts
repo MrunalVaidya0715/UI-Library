@@ -23,9 +23,10 @@ interface InputProps {
     onChange?: ChangeEventHandler<HTMLInputElement>;
     style?: CSSProperties;
     className?: string;
+    type?: "text" | "email" | "number";
 }
 
-declare const Input: ({ id, disabled, label, message, error, success, onChange, placeholder, style, className, ...props }: InputProps) => React$1.JSX.Element;
+declare const Input: ({ id, disabled, label, message, error, success, onChange, placeholder, style, className, type, ...props }: InputProps) => React$1.JSX.Element;
 
 declare const Switch: () => React$1.JSX.Element;
 
@@ -92,13 +93,13 @@ interface ProgressProps {
 declare const Progress: ({ value, minValue, maxValue, showValue, style, className, ...props }: ProgressProps) => React$1.JSX.Element;
 
 interface SliderProps {
-    defaultValue: number;
-    maxValue: number;
-    step: number;
+    value: number;
+    maxValue?: number;
+    step?: number;
     onChange?: (value: number) => void;
 }
 
-declare const Slider: ({ defaultValue, maxValue, step, onChange, }: SliderProps) => React$1.JSX.Element;
+declare const Slider: ({ value, maxValue, step, onChange, }: SliderProps) => React$1.JSX.Element;
 
 interface SelectProps {
     options: string[];

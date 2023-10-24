@@ -7,7 +7,7 @@ import { AiOutlineClose } from "react-icons/ai";
 const AlertContainer = styled.div`
   z-index: 999;
   position: fixed;
-  top: 1rem;
+  top: 0;
   left: 50%;
   transform: translate(-50%, 50%);
   display: flex;
@@ -50,7 +50,13 @@ const AlertInstruct = styled.div<AlertProps>`
   align-items: start;
   justify-content: center;
   font-size: 2rem;
-  margin: 1rem 0;
+  margin: 0;
+  h1,h2,h3,h4,h5,h6,p{
+    padding:0;
+    margin: 0;
+    font-size: 1rem;
+  }
+  gap: 0.2rem;
 `;
 
 const AlertIconContainer = styled.div<AlertProps>`

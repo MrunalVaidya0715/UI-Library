@@ -33,7 +33,7 @@ interface Op {
 
 const OptionsList = styled.ul<Op>`
   display: ${({ isOpen }) => (isOpen ? "block" : "none")};
-  
+  z-index: 800;
   position: absolute;
   border-radius: 8px;
   overflow-y:auto;

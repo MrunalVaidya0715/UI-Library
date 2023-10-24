@@ -13,5 +13,6 @@ export const DefaultAlert = () => (
 );
 
 export const DestructiveAlert = () => (
-  <Alert variant="destructive" title="Destructive Alert" description="This is a destructive alert." />
+  <Alert variant="destructive" title="Destructive Alert" description="This is a destructive alert." >
+  </Alert>
 );

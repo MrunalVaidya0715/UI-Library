@@ -66,6 +66,7 @@ const Input= ({
   placeholder,
   style,
   className,
+  type,
   ...props
 }:InputProps) => {
   return (
@@ -77,7 +78,7 @@ const Input= ({
       </StyledLabel>
       <StyledInput
         id={id}
-        type="text"
+        type={type || "text"}
         onChange={onChange}
         disabled={disabled}
         error={error}

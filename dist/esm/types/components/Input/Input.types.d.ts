@@ -10,4 +10,5 @@ export interface InputProps {
     onChange?: ChangeEventHandler<HTMLInputElement>;
     style?: CSSProperties;
     className?: string;
+    type?: "text" | "email" | "number";
 }
