@@ -3,9 +3,7 @@ import { ChangeEventHandler, CSSProperties } from "react";
 export interface InputProps {
   id?: string;
   label?: string;
-  error?: boolean;
-  message?: string;
-  success?: boolean;
+  isMandtory?: boolean;
   disabled?: boolean;
   placeholder?: string;
   onChange?: ChangeEventHandler<HTMLInputElement>;
