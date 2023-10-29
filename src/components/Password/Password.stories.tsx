@@ -12,5 +12,5 @@ export const Default: Story = (args) => <Password {...args} />;
 
 Default.args = {
   placeholder: "Enter Password",
-  
+  isMandtory: true
 };

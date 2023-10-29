@@ -39,6 +39,14 @@ const StyledInput = styled.input`
   border: 0;
 `;
 
+const Seperator = styled.div`
+  height: 70%;
+  width: 1px;
+  background-color: lightgray;
+`
+const StyledMark = styled.span`
+  color: red;
+`
 const StyledLabel = styled.div`
   font-size: 1rem;
   color: "#080808";
@@ -54,10 +62,19 @@ const StyledEye = styled.button`
   border: 0;
   cursor: pointer;
   outline: none;
+  &:focus{
+    outline: 0;
+    border: 0;
+  }
+  &:hover{
+    opacity: 0.7;
+  }
+  transition: all ease-in-out 200ms;
 `;
 
 const Password = ({
   placeholder,
+  isMandtory,
   onChange,
   style,
   className,
@@ -72,7 +89,10 @@ const Password = ({
   return (
     <StyledContainer style={style} className={className} {...props}>
       <StyledLabel>
-        <StyledText>Password</StyledText>
+        <StyledText>
+          Password
+          { isMandtory && <StyledMark>*</StyledMark>}
+        </StyledText>
       </StyledLabel>
       <StyledInputContainer>
         <StyledInput
@@ -83,6 +103,7 @@ const Password = ({
           {...props}
           onChange={(e) => onChange}
         />
+        <Seperator/>
         <StyledEye onClick={togglePasswordVisibility}>
           {showPassword ? (
             <AiFillEyeInvisible size={18} />
