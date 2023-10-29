@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { SelectProps } from "./Select.types";
-import {BiExpandVertical} from 'react-icons/bi'
+import {BiExpandVertical, BiCollapseVertical} from 'react-icons/bi'
 const SelectWrapper = styled.div`
   position: relative;
   display: inline-block;
@@ -103,7 +103,9 @@ const Select = ({ options, value, onChange, variant, label, style, className, ..
         {Array.isArray(selectedOptions)
           ? selectedOptions.join(", ")
           : selectedOptions}
-          <BiExpandVertical/>
+          {
+            isOpen ? <BiCollapseVertical/> : <BiExpandVertical/>
+          }
       </SelectButton>
       <OptionsList isOpen={isOpen}>
         {options.map((option) => (
