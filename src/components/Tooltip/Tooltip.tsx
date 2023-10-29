@@ -10,6 +10,7 @@ const StyledTooltip = styled.div`
 `;
 
 const StyledTooltipMessage = styled.span<TooltipProps>`
+  opacity: 0;
   display: none;
   position: absolute;
   background-color: #333;
@@ -17,6 +18,7 @@ const StyledTooltipMessage = styled.span<TooltipProps>`
   padding: 5px;
   border-radius: 5px;
   white-space: nowrap;
+  transition: opacity 250ms ease, transform 250ms ease; /* Add opacity transition */
 
   ${({ position }) => {
     if (position === "top") {
@@ -45,24 +47,39 @@ const StyledTooltipMessage = styled.span<TooltipProps>`
       `;
     }
   }}
+
+  &.show {
+    display: inline;
+    opacity: 1;
+  }
 `;
+
 
 const StyledTooltipTrigger = styled.span`
   cursor: help;
 `;
 
 const Tooltip = ({ message, position, children, style, className }: TooltipProps) => {
+  let tooltipTimeout: any;
+
   const handleMouseEnter = () => {
-    const tooltipMessage = document.getElementById("tooltip-message");
-    if (tooltipMessage) {
-      tooltipMessage.style.display = "inline";
-    }
+    clearTimeout(tooltipTimeout);
+
+    tooltipTimeout = setTimeout(() => {
+      const tooltipMessage = document.getElementById("tooltip-message");
+      if (tooltipMessage) {
+        tooltipMessage.style.display = "inline";
+        tooltipMessage.classList.add("show");
+      }
+    }, 800); 
   };
 
   const handleMouseLeave = () => {
+    clearTimeout(tooltipTimeout);
+
     const tooltipMessage = document.getElementById("tooltip-message");
     if (tooltipMessage) {
-      tooltipMessage.style.display = "none";
+      tooltipMessage.classList.remove("show");
     }
   };
 
@@ -80,5 +97,6 @@ const Tooltip = ({ message, position, children, style, className }: TooltipProps
     </StyledTooltip>
   );
 };
+
 
 export {Tooltip};
