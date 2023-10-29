@@ -11,6 +11,5 @@ export * from "./Slider";
 export * from "./Select";
 export * from "./Checkbox";
 export * from "./Radio";
-export * from "./Form";
 export * from "./Password";
 export * from "./Alert";
