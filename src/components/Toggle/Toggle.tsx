@@ -43,6 +43,7 @@ const Toggle = ({ isActive, children, style, className }: ToggleButtonProps) => 
     <StyledToggleButton
       style={style}
       className={className}
+      isActive={isAct}
       onClick={handleToggleClick}
     >
       <StyledIcon isActive={isAct}>{children}</StyledIcon>
