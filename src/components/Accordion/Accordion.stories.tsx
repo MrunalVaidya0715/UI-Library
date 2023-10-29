@@ -15,14 +15,14 @@ type AccordionStory = StoryObj<{
 
 export const Default: AccordionStory = (args) => (
   <Accordion {...args}>
-    <AccordionItem value="item-1">
-      Is it accessible?
+    <AccordionItem value="Title-1">
+      Cross-browser Support
     </AccordionItem>
-    <AccordionItem value="item-2">
-      How does it work?
+    <AccordionItem value="Title-2">
+      Accessible
     </AccordionItem>
-    <AccordionItem value="item-3">
-      Is it customizable?
+    <AccordionItem value="Title-3">
+      Customizable
     </AccordionItem>
   </Accordion>
 );

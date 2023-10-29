@@ -8,4 +8,5 @@ export  interface AccordionItemProps {
     activeItem?: string | null;
     onClick?: (value: string) => void;
     children: React.ReactNode;
+    isActive?: boolean;
   }

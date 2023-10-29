@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styled from "styled-components";
+import styled, {css, keyframes} from "styled-components";
 import { AccordionProps, AccordionItemProps } from "./Accordion.types";
 import {AiOutlinePlus} from "react-icons/ai"
 const StyledAccordion = styled.div`
@@ -14,7 +14,7 @@ const StyledAccordionItem = styled.div<AccordionItemProps>`
   overflow: hidden;
   border-radius: 5px;
   box-shadow: ${
-    (props) => props.value === props.activeItem? "0px 3px 6px rgba(0, 0, 0, 0.05)":"0px 3px 6px rgba(0, 0, 0, 0.0)"
+    (props) => props.isActive? "0px 3px 6px rgba(0, 0, 0, 0.08)":"0px 3px 6px rgba(0, 0, 0, 0.0)"
   };
  ;
 `;
@@ -26,14 +26,23 @@ const StyledAccordionTrigger = styled.div`
   align-items: center;
   padding: 0.5rem;
   font-weight: 600;
-  background-color: #f0f0f0;
+  background-color: #faf6f6;
   user-select: none;
+`;
+const show = keyframes`
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 `;
 
 const StyledAccordionContent = styled.div<AccordionItemProps>`
-  padding: 1rem;
+  padding: 0.5rem;
   background-color: #ffffff;
   border-top: 1px solid #ddd; 
+  animation: ${(props) => (props.isActive ? "": show)} 450ms linear;
 
 `;
 
@@ -65,18 +74,20 @@ const AccordionItem = ({
   value,
   activeItem,
   onClick,
+  isActive,
   children,
 }: AccordionItemProps) => {
-  const isActive = value === activeItem;
+  const isAct = value === activeItem;
 
   return (
-    <StyledAccordionItem>
+    <StyledAccordionItem isActive={isAct}>
+      
       <StyledAccordionTrigger onClick={() => onClick && value && onClick(value)}>
-        {children}
-        <AiOutlinePlus style={{transform: isActive? "rotate(45deg)":"", transition:"all ease-in-out 150ms"}}/>
+        {value}
+        <AiOutlinePlus style={{transform: isAct? "rotate(45deg)":"", transition:"all ease-in-out 150ms"}}/>
       </StyledAccordionTrigger>
-      {isActive && (
-        <StyledAccordionContent>{children}</StyledAccordionContent>
+      {isAct && (
+        <StyledAccordionContent >{children}</StyledAccordionContent>
       )}
     </StyledAccordionItem>
   );
