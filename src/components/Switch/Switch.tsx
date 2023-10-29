@@ -1,53 +1,87 @@
 import React, { useState } from "react";
-import styled from "styled-components";
+import styled,{css, keyframes} from "styled-components";
+import { SwitchProps } from "./Switch.types";
 
-const StyledSwitch = styled.label`
+
+const StyledSwitch = styled.label<SwitchProps>`
   position: relative;
   display: flex;
+  align-items: center;
   width: 3rem;
   height: 1.5rem;
   border: 1px solid #9CA3AF;
+  background-color: ${(props)=>props.isChecked ?"#5c94e9":"#D1D5DB"};
   overflow: hidden;
   border-radius: 12px;
   justify-content: space-between;
+  transition:  all 250ms ease-in-out;
 `;
 
-const StyledTrack = styled.div`
+const grow = keyframes`
+  0% {
+    width: 20%;
+  }
+  25% {
+    width: 30%;
+    border-radius: 20%;
+  }
+  100% {
+    width: 20%;
+  }
+`;
+
+const shrink = keyframes`
+  0% {
+    width: 20%;
+    
+  }
+  75% {
+    width: 30%;
+    border-radius: 20%;
+  }
+  100% {
+    width: 20%;
+  }
+`;
+
+const StyledTrack = styled.div<SwitchProps>`
   position: absolute;
   z-index: 1;
-  
+  animation: ${(props) => (props.isChecked ? grow : shrink)} 250ms ease-in-out;
+  transform: translateX(${(props) => (props.isChecked ? "195%" : "35%")});
+  transition:  all 250ms ease-in-out; 
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
-  background-color: #ffffff;
-  width: 60%;
-  height: 100%;
-  border-radius: 12px;
-  transition: all 150ms ease-in;
+  background-color: ${(props)=>props.isChecked ?"white":"transparent"};
+  width: 20%;
+  height: 40%;
+  border-radius: 50%;
+  border: 3px solid white;
 `;
 
-const StyledInput = styled.input`
+const StyledInput = styled.input<SwitchProps>`
   position: absolute;
   z-index: 2;
   opacity: 0;
   width: 100%;
   height: 100%;
-  cursor: pointer;
+  cursor: ${(props) => (props.isDisabled ? "not-allowed" : "pointer")};
 `;
 
-const Switch = () => {
-  const [isActive, setIsActive] = useState(false);
+const Switch = ({ isChecked, isDisabled }: SwitchProps) => {
+  const [isActive, setIsActive] = useState(isChecked);
 
   const handleSwitchChange = () => {
-    setIsActive((prevIsActive) => !prevIsActive);
+    if (!isDisabled) {
+      setIsActive((prevIsActive) => !prevIsActive);
+    }
   };
 
   return (
-    <StyledSwitch style={{ backgroundColor: isActive ? "#0e6bf5":"#D1D5DB"}} onClick={handleSwitchChange}>
-      {
-        isActive? <StyledTrack style={{right:"0"}}  />: <StyledTrack style={{left:"0"}}  />
-      }
-      <StyledInput type="checkbox" checked={isActive} readOnly />
+    <StyledSwitch isChecked={isActive} onClick={handleSwitchChange}>
+      <StyledTrack isChecked={isActive} />
+      <StyledInput isChecked={isActive} isDisabled={isDisabled} checked={isActive} readOnly disabled={isDisabled} />
     </StyledSwitch>
   );
 };
 
-export {Switch};
+export { Switch };

@@ -15,6 +15,14 @@ export const Default: Story = (args) => (
   <Switch data-testId="InputField-id" {...args} />
 );
 Default.args = {
-  primary: true,
-  disabled: false,
+  isChecked: false,
+  isDisabled: false,
+};
+
+export const Disabled: Story = (args) => (
+  <Switch data-testId="InputField-id" {...args} />
+);
+Disabled.args = {
+  isChecked: false,
+  isDisabled: true,
 };
